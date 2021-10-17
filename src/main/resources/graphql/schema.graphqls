@@ -1,16 +1,21 @@
 type Query {
     employees: [Employee]
+    employeesByName(name: String) : [Employee]
 }
 
 type Employee {
     id:ID
     name: String
-    role: Role
+    role: String
     address: String
+    department: Department
 }
 
-enum Role {
-    ADMIN
-    STAFF
-    HR
+type Department {
+    id: ID
+    name: String
+}
+
+type Mutation{
+    addEmployee(name: String) : Employee
 }
